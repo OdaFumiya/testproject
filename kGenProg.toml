@@ -1,0 +1,2 @@
+src  = ["src/testproject/Count/java"]
+test = ["src/testproject/CountTest/java"]
