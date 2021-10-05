@@ -47,7 +47,7 @@ class Counttest {
         Wordcount wc =  new Wordcount();
         assertThat(wc.count(null), is(0));
     }
-    @test(expected = NullNameException.class)
+@test(expected = NullNameException.class)
 public void nullShopNameTest(){
 	Shop s1 = new Shop(null);
 }
