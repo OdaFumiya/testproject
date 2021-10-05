@@ -47,4 +47,51 @@ class Counttest {
         Wordcount wc =  new Wordcount();
         assertThat(wc.count(null), is(0));
     }
+    @test(expected = NullNameException.class)
+public void nullShopNameTest(){
+	Shop s1 = new Shop(null);
+}
+
+@test
+public void addProductTest(){
+	Product p1 = new Product("hoge",10);
+	Shop s1 = new Shop("foo");
+	foo.addProduct(p1);
+	assertThat(foo.getNumberOfProduct(), is(1));
+}
+
+@test
+public void addSomeProductsTest(){
+	Product p1 = new Product("hoge",10);
+	Product p2 = new Product("piyo",20);
+	Product p3 = new Product("fuga",30);
+	Shop s1 = new Shop("foo");
+	foo.addProduct(p1);
+	foo.addProduct(p2);
+	foo.addProduct(p3);
+	assertThat(foo.getNumberOfProduct(), is(3));
+}
+
+@test(expected = NullProductException.class)
+public void addNullProductTest(){
+	Shop s1 = new Shop("foo");
+	foo.addProduct(null);
+}
+
+@test
+public void addSameNameProductsTest(){
+	Product p1 = new Product("hoge",10);
+	Product p2 = new Product("hoge",20);
+	Product p3 = new Product("hoge",30);
+	Shop s1 = new Shop("foo");
+	foo.addProduct(p1);
+	foo.addProduct(p2);
+	foo.addProduct(p3);
+	assertThat(foo.getNumberOfProduct(), is(3));
+}
+
+@test(expected = LongNameException.class)
+public void longShopNameTest(){
+	Shop s1 = new Shop("thisIsTooLongNameExample");
+}
 }
