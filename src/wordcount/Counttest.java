@@ -95,3 +95,57 @@ public void longShopNameTest(){
 	Shop s1 = new Shop("thisIsTooLongNameExample");
 }
 }
+@Test
+public void PushAndPop_NewStack_StackSizeIsZero {
+    Stack s=new Stack();
+    s.push(1);
+    s.pop();
+    assertThat(s.size(), is(0));
+}
+@Test
+public void PushAndPop_AllPopedStack_StackSizeIsZero() {
+    Stack s=new Stack();
+    s.push(1);
+    s.pop();
+    s.push(2);
+    s.pop();
+    assertThat(s.size(), is(0));
+}
+@Test
+public void PushAndPush_NewStack_StackSizeIsTwo() {
+    Stack s=new Stack();
+    s.push(1);
+    s.push(2);
+    assertThat(s.size(), is(2));
+}
+@Test
+public void PushNull_NewStack_StackSizeIsZero() {
+    Stack s=new Stack();
+    s.push(null);
+    assertThat(s.size(), is(0));
+}
+@Test
+public void Push_StackPushedNull_StackSizeIsOne() {
+    Stack s=new Stack();
+    s.push(null);
+    s.push(1);
+    assertThat(s.size(), is(1));
+}
+@Test(ecpected=EmptystackException.class)
+public void Pop_EmptyStack_ThrowsException() {
+    Stack s=new Stack();
+    s.pop();
+}
+@Test(ecpected=EmptystackException.class)
+public void TooManyPop_PushedStack_ThrowsException() {
+    Stack s=new Stack();
+    s.push(1);
+    s.pop();
+    s.pop();
+}
+@Test(ecpected=EmptystackException.class)
+public void TooManyPush_NewStack_ThrowsException() {
+    Stack s=new Stack();
+    for(int i=0;i<256;i++)push(i);
+    push(256);
+}
