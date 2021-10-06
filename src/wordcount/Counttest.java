@@ -96,7 +96,7 @@ public void longShopNameTest(){
 }
 }
 @Test
-public void PushAndPop_NewStack_StackSizeIsZero {
+public void PushAndPop_NewStack_StackSizeIsZero() {
     Stack s=new Stack();
     s.push(1);
     s.pop();
